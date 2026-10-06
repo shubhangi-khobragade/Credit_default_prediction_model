@@ -1,0 +1,111 @@
+{
+  "data": {
+    "n_rows": 30000,
+    "n_train": 24000,
+    "n_test": 6000,
+    "default_rate": 0.2212,
+    "n_model_features": 41
+  },
+  "candidates": {
+    "logistic_regression": {
+      "cv_auc_mean": 0.7566831959501932,
+      "cv_auc_std": 0.006401810622626347,
+      "best_params": {
+        "clf__C": 0.1
+      }
+    },
+    "gradient_boosting": {
+      "cv_auc_mean": 0.7874837302507809,
+      "cv_auc_std": 0.004558773704249049,
+      "best_params": {
+        "min_samples_leaf": 20,
+        "max_leaf_nodes": 31,
+        "max_depth": 6,
+        "learning_rate": 0.05,
+        "l2_regularization": 10.0
+      }
+    }
+  },
+  "champion": "gradient_boosting",
+  "train_auc": 0.8348376168424555,
+  "test": {
+    "roc_auc": 0.7808896237440274,
+    "gini": 0.5617792474880547,
+    "pr_auc": 0.5557625805506532,
+    "ks": 0.4192753155059828,
+    "brier": 0.13462460699148096,
+    "log_loss": 0.42857138047899934,
+    "roc_auc_ci95": [
+      0.7669612486512457,
+      0.7960504976158838
+    ],
+    "ece": 0.010535343674422484
+  },
+  "test_naive_pay1_auc": 0.6762175437114009,
+  "test_challenger_auc": 0.7397668886552017,
+  "champion_minus_challenger_auc_ci95": [
+    0.031116582137936423,
+    0.050699078809116054
+  ],
+  "score_psi_train_vs_test": 0.0008631934447478182,
+  "threshold": {
+    "chosen": 0.16999999999999998,
+    "cost_fn": 5.0,
+    "cost_fp": 1.0,
+    "operating_points_test": {
+      "chosen": {
+        "threshold": 0.16999999999999998,
+        "tp": 978,
+        "fp": 1581,
+        "fn": 349,
+        "tn": 3092,
+        "precision": 0.3821805392731536,
+        "recall": 0.7370007535795027,
+        "flag_rate": 0.4265,
+        "cost_per_client": 0.5543333333333333
+      },
+      "default_0.5": {
+        "threshold": 0.5,
+        "tp": 479,
+        "fp": 242,
+        "fn": 848,
+        "tn": 4431,
+        "precision": 0.6643550624133149,
+        "recall": 0.36096458176337604,
+        "flag_rate": 0.12016666666666667,
+        "cost_per_client": 0.747
+      },
+      "flag_nobody": {
+        "threshold": 0.5,
+        "tp": 0,
+        "fp": 0,
+        "fn": 1327,
+        "tn": 4673,
+        "precision": 0.0,
+        "recall": 0.0,
+        "flag_rate": 0.0,
+        "cost_per_client": 1.1058333333333332
+      },
+      "flag_everybody": {
+        "threshold": 0.5,
+        "tp": 1327,
+        "fp": 4673,
+        "fn": 0,
+        "tn": 0,
+        "precision": 0.22116666666666668,
+        "recall": 1.0,
+        "flag_rate": 1.0,
+        "cost_per_client": 0.7788333333333334
+      }
+    }
+  },
+  "ablation_auc_with_protected_attributes": 0.7811869917309444,
+  "environment": {
+    "python": "3.12.3",
+    "sklearn": "1.8.0",
+    "pandas": "3.0.2",
+    "numpy": "2.4.4",
+    "seed": 42
+  },
+  "runtime_seconds": 131.6
+}
